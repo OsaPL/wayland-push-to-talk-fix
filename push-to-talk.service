@@ -1,0 +1,25 @@
+﻿# Fill:
+#   `WorkingDirectory` with path to the executable
+#   `User` with a sudoer user
+#   `<device-name>` with device name
+# Copy this file .service to /etc/systemd/system/
+# Execute `sudo systemctl daemon-reload`
+# Execute `sudo systemctl enable push-to-talk`
+# Execute `sudo systemctl start push-to-talk`
+
+[Unit]
+Description=Push to talk fix Service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=60
+User=osa
+WorkingDirectory=/home/sources/wayland-push-to-talk-fix
+ExecStart=sudo ./push-to-talk /dev/input/by-id/<device-name>
+
+ExecStop=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target
