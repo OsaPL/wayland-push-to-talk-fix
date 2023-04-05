@@ -10,12 +10,12 @@ extern "C" {
 #include <errno.h>
 
 /* See https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h */
-#define PTT_EV_KEY_CODE KEY_LEFTMETA
+#define PTT_EV_KEY_CODE KEY_LEFTSHIFT
 /*
  * Full list (Ignore leading XKB_KEY_):
  * https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
  */
-#define PTT_XKEY_EVENT "Super_L"
+#define PTT_XKEY_EVENT "Shift_L"
 
 int main(int argc, char **argv)
 {
